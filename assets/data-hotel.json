@@ -1,0 +1,70 @@
+{
+  "hotels": [
+    {
+      "id": 1,
+      "type": "motel",
+      "name": "Blue Yoga Motel, Bali",
+      "location": "Legian Nort St, Kuta, Bali",
+      "description": "The motel is located in the most popular tourist area in Bali, perfect for those of you who like backpackers. We’ll bring you through some of the most unique hotels that you never thought you’ll find in Bali. Let's find out!",
+      "second-description": "The motel is located in the most popular tourist area in Bali, perfect for those of you who Tlike backpackers.",
+      "price": 15,
+      "stars": 4.5,
+      "reviews": 745,
+      "amenities": [
+        {
+          "id": 1,
+          "name": "parking",
+          "icon": "assets/images/icons/car.svg"
+        },
+        {
+          "id": 2,
+          "name": "wifi",
+          "icon": "assets/images/icons/wifi.svg"
+        },
+        {
+          "id": 3,
+          "name": "laundry",
+          "icon": "assets/images/icons/laundry.svg"
+        },
+        {
+          "id": 4,
+          "name": "ac",
+          "icon": "assets/images/icons/ac.svg"
+        },
+        {
+          "id": 5,
+          "name": "bar",
+          "icon": "assets/images/icons/bar.svg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "motel",
+      "name": "Mongkey Forest House",
+      "location": "Mongkey forest st, Ubud, Bali",
+      "description": "A comfortable and quiet house located near the monkey forest Ubud, you will have the best holiday ever. We’ll bring you through some of the most unique hotels that you never thought you’ll find in Bali. Let's find out!",
+      "second-description": "A comfortable and quiet house located near the monkey forest Ubud, you will have the best holiday ever.",
+      "price": 20,
+      "stars": 4.1,
+      "reviews": 250,
+      "amenities": [
+        {
+          "id": 3,
+          "name": "laundry",
+          "icon": "assets/images/icons/laundry.svg"
+        },
+        {
+          "id": 4,
+          "name": "ac",
+          "icon": "assets/images/icons/ac.svg"
+        },
+        {
+          "id": 5,
+          "name": "bar",
+          "icon": "assets/images/icons/bar.svg"
+        }
+      ]
+    }
+  ]
+}
