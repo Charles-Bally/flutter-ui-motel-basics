@@ -8,6 +8,7 @@ import 'package:ui_hotel_book/components/CardButton.dart';
 import 'package:ui_hotel_book/components/MyAppBar.dart';
 import 'package:ui_hotel_book/components/MyBottomBar.dart';
 import 'package:ui_hotel_book/components/pagesComponents/FiltersMotels.dart';
+import 'package:ui_hotel_book/components/pagesComponents/Recommended.dart';
 import 'package:ui_hotel_book/components/pagesComponents/SelectFilters.dart';
 import 'package:ui_hotel_book/components/pagesComponents/SelectLocation.dart';
 import 'package:ui_hotel_book/styles/AppColors.dart';
@@ -66,27 +67,29 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: MyAppBar(),
+      extendBody: true,
       bottomNavigationBar: MyBottomBar(
         callBackFunction: handleClickOnTab,
         currentMenu: currentMenu,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 24,
-            ),
-            SelectLocation(
-              currentLocation: currentLocation,
-              handleChangeLocation: handleChangeLocation,
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            FiltersMotels(),
-          ],
-        ),
+      body: ListView(
+        children: [
+          SizedBox(
+            height: 24,
+          ),
+          SelectLocation(
+            currentLocation: currentLocation,
+            handleChangeLocation: handleChangeLocation,
+          ),
+          SizedBox(
+            height: 24,
+          ),
+          FiltersMotels(),
+          SizedBox(
+            height: 16,
+          ),
+          Recommended(),
+        ],
       ),
     );
   }

@@ -25,85 +25,88 @@ class SelectLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: [AppShadow.primaryShadowMedium],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Select location",
-            style: GoogleFonts.inter(
-              color: AppColors.text,
-              letterSpacing: -0.24,
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [AppShadow.primaryShadowMedium],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Select location",
+              style: GoogleFonts.inter(
+                color: AppColors.text,
+                letterSpacing: -0.24,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+              ),
             ),
-          ),
-          DropdownButtonHideUnderline(
-            child: DropdownButton2<String>(
-              isExpanded: true,
-              value: currentLocation,
-              onChanged: (String? value) {
-                handleChangeLocation(value);
-              },
-              customButton: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 3),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        currentLocation ?? "Select location",
-                        style: GoogleFonts.inter(
-                          color: AppColors.text,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: -0.24,
-                        ),
-                      ),
-                    ),
-                    SvgPicture.asset(
-                      AppIcons.arrowDown,
-                      width: 24,
-                      height: 24,
-                    ),
-                  ],
-                ),
-              ),
-              dropdownStyleData: DropdownStyleData(
-                maxHeight: 200,
-                width: 200,
-                offset: const Offset(-8, -10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: AppColors.white,
-                ),
-              ),
-              menuItemStyleData: const MenuItemStyleData(
-                padding: EdgeInsets.only(left: 8),
-              ),
-              items: locationList
-                  .map((String item) => DropdownMenuItem<String>(
-                        value: item,
+            DropdownButtonHideUnderline(
+              child: DropdownButton2<String>(
+                isExpanded: true,
+                value: currentLocation,
+                onChanged: (String? value) {
+                  handleChangeLocation(value);
+                },
+                customButton: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 3),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
                         child: Text(
-                          item,
+                          currentLocation ?? "Select location",
                           style: GoogleFonts.inter(
                             color: AppColors.text,
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                             letterSpacing: -0.24,
                           ),
-                          overflow: TextOverflow.ellipsis,
                         ),
-                      ))
-                  .toList(),
+                      ),
+                      SvgPicture.asset(
+                        AppIcons.arrowDown,
+                        width: 24,
+                        height: 24,
+                      ),
+                    ],
+                  ),
+                ),
+                dropdownStyleData: DropdownStyleData(
+                  maxHeight: 200,
+                  width: 200,
+                  offset: const Offset(-8, -10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: AppColors.white,
+                  ),
+                ),
+                menuItemStyleData: const MenuItemStyleData(
+                  padding: EdgeInsets.only(left: 8),
+                ),
+                items: locationList
+                    .map((String item) => DropdownMenuItem<String>(
+                          value: item,
+                          child: Text(
+                            item,
+                            style: GoogleFonts.inter(
+                              color: AppColors.text,
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: -0.24,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ))
+                    .toList(),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

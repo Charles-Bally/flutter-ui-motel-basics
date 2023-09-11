@@ -1,6 +1,7 @@
 class Hotel {
   final int id;
   final String type;
+  final bool recommended;
   final String name;
   final String location;
   final String description;
@@ -14,6 +15,7 @@ class Hotel {
   Hotel({
     required this.id,
     required this.type,
+    required this.recommended,
     required this.name,
     required this.location,
     required this.description,
@@ -33,6 +35,7 @@ class Hotel {
     return Hotel(
       id: json['id'] as int,
       type: json['type'] as String,
+      recommended: json['recommended'] as bool,
       name: json['name'] as String,
       location: json['location'] as String,
       description: json['description'] as String,

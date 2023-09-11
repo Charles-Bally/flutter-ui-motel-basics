@@ -3,6 +3,7 @@
     {
       "id": 1,
       "type": "motel",
+      "recommended": false,
       "name": "Blue Yoga Motel, Bali",
       "location": "Legian Nort St, Kuta, Bali",
       "description": "The motel is located in the most popular tourist area in Bali, perfect for those of you who like backpackers. We’ll bring you through some of the most unique hotels that you never thought you’ll find in Bali. Let's find out!",
@@ -42,6 +43,7 @@
     {
       "id": 2,
       "type": "motel",
+      "recommended": false,
       "name": "Mongkey Forest House",
       "location": "Mongkey forest st, Ubud, Bali",
       "description": "A comfortable and quiet house located near the monkey forest Ubud, you will have the best holiday ever. We’ll bring you through some of the most unique hotels that you never thought you’ll find in Bali. Let's find out!",
@@ -70,7 +72,78 @@
     },
     {
       "id": 3,
+      "type": "motel",
+      "recommended": true,
+      "name": "Ramayana Luxury",
+      "location": "Ir Soekarno St, Jimbaran, Bali",
+      "description": "The motel is located in the most popular tourist area in Bali, perfect for those of you who like backpackers.",
+      "second-description": "The motel is located in the most popular tourist area in Bali, perfect for those of you who like backpackers.",
+      "price": 48,
+      "stars": 4.6,
+      "reviews": 751,
+      "img":"assets/images/temps/img3.jpg",
+      "amenities": [
+        {
+          "id": 1,
+          "name": "parking",
+          "icon": "assets/images/icons/car.svg"
+        },
+        {
+          "id": 2,
+          "name": "wifi",
+          "icon": "assets/images/icons/wifi.svg"
+        },
+        {
+          "id": 3,
+          "name": "laundry",
+          "icon": "assets/images/icons/laundry.svg"
+        },
+        {
+          "id": 4,
+          "name": "ac",
+          "icon": "assets/images/icons/ac.svg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "motel",
+      "recommended": true,
+      "name": "Seminyak Beach House",
+      "location": "Double Six, Seminyak, Bali",
+      "description": "A comfortable and quiet house located near the monkey forest Ubud, you will have the best holiday ever.",
+      "second-description": "A comfortable and quiet house located near the monkey forest Ubud, you will have the best holiday ever. Perfect for those of you who like backpackers.",
+      "price": 42,
+      "stars": 4.4,
+      "reviews": 600,
+      "img":"assets/images/temps/img4.jpg",
+      "amenities": [
+        {
+          "id": 1,
+          "name": "parking",
+          "icon": "assets/images/icons/car.svg"
+        },
+        {
+          "id": 2,
+          "name": "wifi",
+          "icon": "assets/images/icons/wifi.svg"
+        },
+        {
+          "id": 3,
+          "name": "laundry",
+          "icon": "assets/images/icons/laundry.svg"
+        },
+        {
+          "id": 5,
+          "name": "bar",
+          "icon": "assets/images/icons/bar.svg"
+        }
+      ]
+    },
+    {
+      "id": 5,
       "type": "hotel",
+      "recommended": true,
       "name": "Sans soucis",
       "location": "Gare de bassam, Treichville",
       "description": "A comfortable and quiet house located near the monkey forest Ubud, you will have the best holiday ever. We’ll bring you through some of the most unique hotels that you never thought you’ll find in Bali. Let's find out!",

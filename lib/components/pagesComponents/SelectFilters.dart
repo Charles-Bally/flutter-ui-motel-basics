@@ -23,14 +23,21 @@ class SelectFilters extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 20,
-      child: ListView.separated(
+      child: ListView(
         scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) => const SizedBox(
-          width: 24,
-        ),
-        itemCount: selectFilterValue.length,
-        itemBuilder: (context, index) {
-          return InkWell(
+        children: allFilters(),
+      ),
+    );
+  }
+
+  List<Widget> allFilters() {
+    List<Widget> filterSelect = [];
+    for (int index = 0; index < selectFilterValue.length; index++) {
+      filterSelect.add(const SizedBox(width: 16));
+      filterSelect.add(
+        SizedBox(
+          height: 350,
+          child: InkWell(
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () {
@@ -46,9 +53,15 @@ class SelectFilters extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
             ),
-          );
-        },
-      ),
-    );
+          ),
+        ),
+      );
+    }
+
+    if (filterSelect.isNotEmpty) {
+      filterSelect.add(const SizedBox(width: 16));
+    }
+
+    return filterSelect;
   }
 }

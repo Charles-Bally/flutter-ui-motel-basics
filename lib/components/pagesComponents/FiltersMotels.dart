@@ -67,16 +67,22 @@ class _FiltersMotelsState extends State<FiltersMotels>
   }
 
   List<Widget> allHotels() {
-    return _hotels
+    final hotelWidgets = _hotels
         .expand(
           (hotel) => [
+            const SizedBox(width: 16),
             SizedBox(
               height: 350,
               child: CardButton(myHotel: hotel),
             ),
-            SizedBox(width: 16),
           ],
         )
         .toList();
+
+    if (hotelWidgets.isNotEmpty) {
+      hotelWidgets.add(const SizedBox(width: 16));
+    }
+
+    return hotelWidgets;
   }
 }
