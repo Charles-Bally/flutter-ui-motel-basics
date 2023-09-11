@@ -10,6 +10,7 @@
       "price": 15,
       "stars": 4.5,
       "reviews": 745,
+      "img":"assets/images/temps/img1.jpg",
       "amenities": [
         {
           "id": 1,
@@ -48,6 +49,7 @@
       "price": 20,
       "stars": 4.1,
       "reviews": 250,
+      "img":"assets/images/temps/img2.jpg",
       "amenities": [
         {
           "id": 3,
@@ -63,6 +65,30 @@
           "id": 5,
           "name": "bar",
           "icon": "assets/images/icons/bar.svg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "hotel",
+      "name": "Sans soucis",
+      "location": "Gare de bassam, Treichville",
+      "description": "A comfortable and quiet house located near the monkey forest Ubud, you will have the best holiday ever. We’ll bring you through some of the most unique hotels that you never thought you’ll find in Bali. Let's find out!",
+      "second-description": "A comfortable and quiet house located near the monkey forest Ubud, you will have the best holiday ever.",
+      "price": 5,
+      "stars": 4.9,
+      "reviews": 600,
+      "img":"assets/images/temps/img1.jpg",
+      "amenities": [
+        {
+          "id": 3,
+          "name": "laundry",
+          "icon": "assets/images/icons/laundry.svg"
+        },
+        {
+          "id": 4,
+          "name": "ac",
+          "icon": "assets/images/icons/ac.svg"
         }
       ]
     }

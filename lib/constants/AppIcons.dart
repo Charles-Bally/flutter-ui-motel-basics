@@ -5,4 +5,5 @@ class AppIcons {
   static const receptionTabBar = "assets/images/icons/tabBar-reception.svg";
 
   static const arrowDown = "assets/images/icons/arrown-down.svg";
+  static const star = "assets/images/icons/star.svg";
 }

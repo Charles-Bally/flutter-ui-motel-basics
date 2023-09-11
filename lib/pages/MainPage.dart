@@ -1,14 +1,15 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'dart:ui';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
+import 'package:ui_hotel_book/class/hotel.dart';
+import 'package:ui_hotel_book/components/CardButton.dart';
 import 'package:ui_hotel_book/components/MyAppBar.dart';
 import 'package:ui_hotel_book/components/MyBottomBar.dart';
+import 'package:ui_hotel_book/components/pagesComponents/FiltersMotels.dart';
 import 'package:ui_hotel_book/components/pagesComponents/SelectFilters.dart';
 import 'package:ui_hotel_book/components/pagesComponents/SelectLocation.dart';
-import 'package:ui_hotel_book/constants/AppShadow.dart';
 import 'package:ui_hotel_book/styles/AppColors.dart';
 
 enum Menus {
@@ -25,10 +26,12 @@ class MainPage extends StatefulWidget {
   State<MainPage> createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   Menus currentMenu = Menus.home;
   String? currentLocation;
   String currentFilter = "All";
+
+  List _hotels = [];
 
   void handleClickOnTab(Menus pressed) {
     setState(() {
@@ -42,10 +45,20 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  void handleChangeFilter(String filter) {
+  Future<void> readJson(String url) async {
+    final String response = await rootBundle.loadString(url);
+    final data = await jsonDecode(response);
+    List arrayHotel = data["hotels"];
     setState(() {
-      currentFilter = filter;
+      _hotels = arrayHotel.map((json) => Hotel.fromJson(json)).toList();
+      print(_hotels);
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readJson("assets/data-hotel.json");
   }
 
   @override
@@ -71,95 +84,7 @@ class _MainPageState extends State<MainPage> {
             SizedBox(
               height: 24,
             ),
-            SelectFilters(
-              setFilter: handleChangeFilter,
-              currentFilter: currentFilter,
-            ),
-            SizedBox(
-              height: 24,
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(children: [
-                SizedBox(
-                  height: 350,
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      Container(
-                        width: 199,
-                        height: 313,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            AppShadow.cardShadow,
-                          ],
-                          borderRadius: BorderRadius.circular(16),
-                          color: AppColors.white,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Hero(
-                              tag: 1,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  topRight: Radius.circular(16),
-                                ),
-                                child: Image.asset(
-                                  "assets/images/temps/img1.jpg",
-                                  width: double.maxFinite,
-                                  height: 148,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                                child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 8.0, vertical: 16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Blue Yoga Motel, Bali",
-                                    style: GoogleFonts.inter(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 16,
-                                      color: AppColors.text,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ))
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  width: 24,
-                ),
-                Stack(
-                  children: [
-                    Container(
-                      width: 199,
-                      height: 313,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          AppShadow.cardShadow,
-                        ],
-                        color: const Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 24,
-                ),
-              ]),
-            )
+            FiltersMotels(),
           ],
         ),
       ),
