@@ -1,15 +1,9 @@
 // ignore_for_file: prefer_const_constructors
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:ui_hotel_book/class/hotel.dart';
-import 'package:ui_hotel_book/components/CardButton.dart';
 import 'package:ui_hotel_book/components/MyAppBar.dart';
 import 'package:ui_hotel_book/components/MyBottomBar.dart';
 import 'package:ui_hotel_book/components/pagesComponents/FiltersMotels.dart';
 import 'package:ui_hotel_book/components/pagesComponents/Recommended.dart';
-import 'package:ui_hotel_book/components/pagesComponents/SelectFilters.dart';
 import 'package:ui_hotel_book/components/pagesComponents/SelectLocation.dart';
 import 'package:ui_hotel_book/styles/AppColors.dart';
 
@@ -32,8 +26,6 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   String? currentLocation;
   String currentFilter = "All";
 
-  List _hotels = [];
-
   void handleClickOnTab(Menus pressed) {
     setState(() {
       currentMenu = pressed;
@@ -46,20 +38,9 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     });
   }
 
-  Future<void> readJson(String url) async {
-    final String response = await rootBundle.loadString(url);
-    final data = await jsonDecode(response);
-    List arrayHotel = data["hotels"];
-    setState(() {
-      _hotels = arrayHotel.map((json) => Hotel.fromJson(json)).toList();
-      print(_hotels);
-    });
-  }
-
   @override
   void initState() {
     super.initState();
-    readJson("assets/data-hotel.json");
   }
 
   @override

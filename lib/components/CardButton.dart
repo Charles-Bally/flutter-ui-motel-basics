@@ -1,3 +1,6 @@
+import 'dart:ffi';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,11 +9,14 @@ import 'package:ui_hotel_book/class/hotel.dart';
 import 'package:ui_hotel_book/constants/AppIcons.dart';
 import 'package:ui_hotel_book/constants/AppLottiesSrc.dart';
 import 'package:ui_hotel_book/constants/AppShadow.dart';
+import 'package:ui_hotel_book/pages/DetailsPage.dart';
 import 'package:ui_hotel_book/styles/AppColors.dart';
 
 class CardButton extends StatefulWidget {
   final Hotel myHotel;
-  const CardButton({super.key, required this.myHotel});
+  final String codification;
+  const CardButton(
+      {super.key, required this.myHotel, required this.codification});
 
   @override
   State<CardButton> createState() => _CardButtonState();
@@ -19,11 +25,13 @@ class CardButton extends StatefulWidget {
 class _CardButtonState extends State<CardButton> with TickerProviderStateMixin {
   late final AnimationController _controller;
   bool bookmarked = false;
+  late final String heroCode =
+      widget.codification + widget.myHotel.id.toString();
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
       vsync: this,
     );
   }
@@ -40,12 +48,20 @@ class _CardButtonState extends State<CardButton> with TickerProviderStateMixin {
       children: [
         ElevatedButton(
           onPressed: () {
-            print("touched one");
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailsPage(
+                  myHotel: widget.myHotel,
+                  goodTag: heroCode,
+                ),
+              ),
+            );
           },
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.all(0),
+            padding: const EdgeInsets.all(0),
             elevation: 16,
-            shadowColor: Color.fromARGB(60, 138, 106, 255),
+            shadowColor: const Color.fromARGB(60, 138, 106, 255),
             shape: BeveledRectangleBorder(
               borderRadius: BorderRadius.circular(16),
             ),
@@ -65,9 +81,9 @@ class _CardButtonState extends State<CardButton> with TickerProviderStateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Hero(
-                  tag: 1,
+                  tag: heroCode,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(16),
                       topRight: Radius.circular(16),
                     ),
@@ -174,7 +190,7 @@ class _CardButtonState extends State<CardButton> with TickerProviderStateMixin {
                                     color: AppColors.primary,
                                   ),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 4,
                                 ),
                                 SvgPicture.asset(
@@ -228,7 +244,7 @@ class _CardButtonState extends State<CardButton> with TickerProviderStateMixin {
           left: 8,
           child: IgnorePointer(
             child: Container(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 16,
                 vertical: 4,
               ),

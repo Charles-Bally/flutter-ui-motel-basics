@@ -73,7 +73,10 @@ class _FiltersMotelsState extends State<FiltersMotels>
             const SizedBox(width: 16),
             SizedBox(
               height: 350,
-              child: CardButton(myHotel: hotel),
+              child: CardButton(
+                myHotel: hotel,
+                codification: "FiltersMotels",
+              ),
             ),
           ],
         )
