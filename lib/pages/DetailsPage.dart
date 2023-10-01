@@ -16,25 +16,29 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Stack(
+        child: Column(
           children: [
-            Hero(
-              tag: widget.goodTag,
-              child: Image.asset(
-                widget.myHotel.img,
-                width: double.infinity,
-                fit: BoxFit.contain,
-              ),
-            ),
-            Positioned(
-              top: 11,
-              left: 13,
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
+            Stack(
+              children: [
+                Hero(
+                  tag: widget.goodTag,
+                  child: Image.asset(
+                    widget.myHotel.img,
+                    width: double.infinity,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                Positioned(
+                  top: 11,
+                  left: 13,
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),
